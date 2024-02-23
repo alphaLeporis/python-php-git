@@ -1,7 +1,5 @@
 FROM ubuntu:22.04 as docker-compose-downloader
 ARG TARGETARCH
-COPY ./install-docker-compose.sh /install-docker-compose.sh
-RUN ./install-docker-compose.sh
 
 FROM ubuntu:22.04
 LABEL maintainer="Bitbucket Pipelines <pipelines-feedback@atlassian.com>"
@@ -51,9 +49,6 @@ RUN apt-get install -y \
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # install docker-compose
-COPY --from=docker-compose-downloader /usr/local/bin/docker-compose /usr/local/bin/docker-compose
-# Test Docker Compose install
-RUN docker-compose version
 
 # Install nvm with node and npm
 ENV NODE_VERSION=18.16.1 \
