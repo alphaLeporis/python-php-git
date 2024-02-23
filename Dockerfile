@@ -35,13 +35,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
     
 # Composer
-ARG COMPOSER_VERSION=2.5.4
-FROM composer:$COMPOSER_VERSION AS php-composer
+FROM composer:2.5.4 AS php-composer
 RUN /usr/bin/composer -v
 
 # PHP
-ARG PHP_VERSION=8.1.27
-FROM php:$PHP_VERSION-cli AS php
+FROM php:8.1.27-cli AS php
 RUN apt-get install -y \
 		bzip2-dev \
 		libsodium-dev \
