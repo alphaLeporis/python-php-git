@@ -42,7 +42,7 @@ RUN /usr/bin/composer -v
 # PHP
 ARG PHP_VERSION=8.1.27
 FROM php:$PHP_VERSION-cli AS php
-RUN apk add \
+RUN apt-get install -y \
 		bzip2-dev \
 		libsodium-dev \
 		libxml2-dev \
