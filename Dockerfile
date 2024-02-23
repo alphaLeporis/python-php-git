@@ -1,7 +1,7 @@
 # elecena.pl (c) 2015-2023
 
 # https://hub.docker.com/_/php
-ARG PHP_VERSION=8.2.3
+ARG PHP_VERSION=8.1.27
 
 # https://hub.docker.com/_/python/
 ARG PYTHON_VERSION=3.11.2
@@ -75,6 +75,8 @@ COPY --from=php /usr/local/lib/php /usr/local/lib/php
 # see https://github.com/elecena/python-php/issues/8
 # The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
 RUN apk add gnu-libiconv
+
+RUN apk add git
 # use GNU iconv in php
 ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
 # and test it...
