@@ -34,8 +34,8 @@ RUN apt-get update \
         parallel \
     && rm -rf /var/lib/apt/lists/*
     
- # Composer
- ARG COMPOSER_VERSION=2.5.4
+# Composer
+ARG COMPOSER_VERSION=2.5.4
 FROM composer:$COMPOSER_VERSION AS php-composer
 RUN /usr/bin/composer -v
 
