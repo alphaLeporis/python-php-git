@@ -38,13 +38,6 @@ RUN /usr/bin/composer -v
 
 # PHP
 FROM php:8.1.27-cli AS php
-RUN apt-get install -y \
-		bzip2-dev \
-		libsodium-dev \
-		libxml2-dev \
-		libxslt-dev \
-		linux-headers \
-		yaml-dev
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
