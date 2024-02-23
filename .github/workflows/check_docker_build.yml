@@ -15,10 +15,10 @@ jobs:
         # @see https://docs.docker.com/develop/develop-images/build_enhancements/
         COMPOSE_DOCKER_CLI_BUILD: "1"
         DOCKER_BUILDKIT: "1"
-      run: docker build . --tag ${{ github.repository,, }}
+      run: docker build . --tag "$(echo {{ github.repository,, }} | tr '[A-Z]' '[a-z]')"
 
     - name: Image details
       run: docker images | head
 
     - name: Run info.sh
-      run:  docker run -t ${{ github.repository,, }} sh info.sh
+      run:  docker run -t "$(echo {{ github.repository,, }} | tr '[A-Z]' '[a-z]')" sh info.sh
