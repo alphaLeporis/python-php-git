@@ -75,7 +75,7 @@ COPY --from=php /usr/local/lib/php /usr/local/lib/php
 # see https://github.com/elecena/python-php/issues/8
 # The problem seems to be that iconv in musl is not implemented to support that conversion, when using GNU iconv it works.
 RUN apk add gnu-libiconv
-
+# Adding git
 RUN apk add git
 # use GNU iconv in php
 ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so php-fpm php"
