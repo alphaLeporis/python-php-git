@@ -1,6 +1,3 @@
-FROM ubuntu:22.04 as docker-compose-downloader
-ARG TARGETARCH
-
 FROM ubuntu:22.04
 LABEL maintainer="Bitbucket Pipelines <pipelines-feedback@atlassian.com>"
 
@@ -30,6 +27,7 @@ RUN apt-get update \
         gettext-base \
         tar \
         parallel \
+        python-pip \
     && rm -rf /var/lib/apt/lists/*
     
 # Composer
