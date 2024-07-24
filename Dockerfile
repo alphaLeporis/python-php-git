@@ -87,7 +87,7 @@ ENV PHP_VERSION $PHP_VERSION
 ENV COMPOSER_VERSION $COMPOSER_VERSION
 
 RUN apk fix && \
-    apk --no-cache --update add git git-lfs gpg less openssh patch && \
+    apk --no-cache --update add rsync git git-lfs gpg less openssh patch && \
     git lfs install
 
 # add an info script
